@@ -13,8 +13,8 @@ import serial
 
 import time
 
-ser = serial.serial('/dev/ttyACM0',11520, time.out=1.0)
-time.sleep(3)
+ser = serial.serial('/dev/ttyACM0',11520, time.out=1.0) # port path, speed , time to connect
+time.sleep(3)    # There will be some time taken by the interlink serial connection
 
 ser.reset_input_buffer()       # erases the data if it sends the data before the code exutes.
 
