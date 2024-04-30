@@ -145,7 +145,7 @@ resource:https://github.com/samvidita/Connect-RaspberryPi-to-laptop-wirelessly/b
 
 # Need of SSH and VNC
 ## SSH
-// SSH stands for Secure Shell .it's acryptographic network protocol used to securely connect to communicate with another computer over an un secured network
+SSH stands for Secure Shell .It's acryptographic network protocol used to securely connect to communicate with another computer over an un secured network
 This is particularly useful for tasks such as configuring system,running scripts,installing software.With this you can access the Raspberrypi's terminal from laptop.Allowing you to execute commands remotely without needing a physical monitor
 ## VNC 
 VNC stands sor virtual network computing
