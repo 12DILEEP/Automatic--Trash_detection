@@ -142,11 +142,11 @@ Now if we connect again with VNC viewer screen will be visible. Here we are done
 resource:https://github.com/samvidita/Connect-RaspberryPi-to-laptop-wirelessly/blob/main/readme.md
 
 
-## Need of SSH and VNC
-# SSH
+# Need of SSH and VNC
+## SSH
 // SSH stands for Secure Shell .it's acryptographic network protocol used to securely connect to communicate with another computer over an un secured network
 This is particularly useful for tasks such as configuring system,running scripts,installing software.With this you can access the Raspberrypi's terminal from laptop.Allowing you to execute commands remotely without needing a physical monitor
-##VNC 
+## VNC 
 VNC stands sor virtual network computing
 VNC is used for geographical desktop sharing and remote control of computer's graphical uses interface(GUI).
 VNC on the otheer hand allows you to remotely view and interact with the raspberrypi's desktop environment as if you were sitting infront of it
