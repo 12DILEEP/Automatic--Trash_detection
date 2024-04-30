@@ -1,4 +1,3 @@
-# Automatic--Trash_detection
 # Connect Raspberry Pi to Laptop Wirelessly
 
 **This tutorial covers how to connect Raspberry Pi to Laptop wirelessly. Share your Raspberry Pi screen on laptop screen and control it with laptop mouse and keyboard.**
