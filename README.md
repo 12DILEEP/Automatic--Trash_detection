@@ -29,7 +29,7 @@ Open Raspberry Pi Imager and insert microSd card to laptop with card reader. At 
 
 > _Note : Class 10 microSd card with minimum 8GB of space is recommended._
 
-![Imager](doc/PiImager.png)
+![PiImager](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/ef4ff5fe-eaf8-4feb-929d-d35d990d8575)
 
 Select operating system as ERASE, then select the storage space and click on write. This will format the microSD card.
 
