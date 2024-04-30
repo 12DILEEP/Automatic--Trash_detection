@@ -35,11 +35,11 @@ Select operating system as ERASE, then select the storage space and click on wri
 
 After formatting microSD card next step is to flash OS to microSD card. We can select any OS in Raspberry Pi Imager. This will download the OS and then flash it to microSD card. Since we have already downloaded the OS we need to select custom and then select OS image from local downloaded folder. Usually OS image will be downloaded in _.img .zip .iso .gz .xz_ format.
 
-![CustomOS](doc/CustomOS.png)
+![CustomOS](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/dbe6640d-8289-4ac1-874a-f47531d125db)
 
 Then select storage device and click on write. This will flash OS to microSD card. It will take some time.
 
-![Flash](doc/Flash.png)
+![Flash](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/f18bbe77-27f7-4d5f-9fa9-289a25c21587)
 
 ## Step3 : Enable SSH and configure WiFi
 
@@ -49,7 +49,7 @@ Using [SSH](https://www.raspberrypi.org/documentation/remote-access/ssh/) we can
 
 > _Note : Repalce boot_partition_name with your partition name e.g. echo>I:\ssh_
 
-![ssh](doc/ssh.png)
+![ssh](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/d1abe064-2671-4870-8bdc-cdf4cd0321b6)
 
 After enabling SSH, [Cofigure Wifi.](https://www.raspberrypi.org/documentation/configuration/wireless/headless.md) We need to add the details of the wireless network to which we want to connect our Raspberry Pi. Basically we need to create `wpa_supplicant.conf` file and palce it in a boot partion. During boot Raspberry Pi will connect to the wireless network of which details are given. Open any text editor and add following lines
 
@@ -75,11 +75,11 @@ To enable VNC we need to download an [SSH client](https://www.raspberrypi.org/do
 
     raspberrypi.local
 
-![PuTTY](doc/PuTTY.png)
+![PuTTY](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/53b86564-1f59-479f-bd5a-529d60286b1f)
 
 Click on open. If WiFi configuarion is not correct, you eventually see a message saying `Network error: Connection timed out`. When the connection works you will see the security warning. You can safely ignore it, and click the 'Yes' button. You will now see the usual login prompt. The default username for Raspberry Pi OS is `Pi` and password is `raspberry`. You should now have the Raspberry Pi prompt.
 
-![PuTTYlogin](doc/PuTTYlogin.png)
+![PuTTYlogin](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/306b906f-f64c-446a-9c76-84e97b8aab7a)
 
 Now we need to [configure Raspberry Pi.](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) Type the following command in Raspberry Pi command prompt and press enter.
 
@@ -87,15 +87,15 @@ Now we need to [configure Raspberry Pi.](https://www.raspberrypi.org/documentati
 
 This command will open Raspberry Pi configuration window as shown below.
 
-![RaspiConfig](doc/RaspiConfig.png)
+![RaspiConfig](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/7c6a953b-69f7-45fd-8fed-a97d73a3f53b)
 
 Go to `Interface Options` and select `VNC`, and press enter to enable it.
 
-![VNC](doc/VNC.png)
+![VNC](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/9a378474-1f11-4834-8e6b-3e19b29b1af2)
 
 Next in the Raspberry Pi configuration main menu go to `System options` from there select `Boot / AUto login` and finally select `Desktop Autologin`. This will automatically login as 'Pi' user desktop GUI.
 
-![AutoLogin](doc/AutoLogin.png)
+![AutoLogin](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/79ad5e22-2e5b-43ad-9742-51ae1abd7d65)
 
 Here we are done with [Raspberry Pi configuration](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) and enabled [VNC](https://www.raspberrypi.org/documentation/remote-access/vnc/). Click on finish and reboot your Pi.
 
@@ -106,7 +106,7 @@ VNC viewer a graphical desktop sharing system that allows a user to remotely con
 Open VNC viewer and type `raspberrypi.local` as server adreess. If Raspberry Pi and laptop are connected to same network, then authentication window will pop up. Enter the Pi credentials.
 Default username `Pi` and password is `raspberry`.
 
-![VNCviewer](doc/VNCviewer.png)
+![VNCError](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/3439f546-e011-4
 
 After successful login you can see Raspberry Pi desktop interface on your laptop screen. You can control the Raspberry Pi with laptop mouse and keyboard.
 
@@ -116,17 +116,19 @@ After successful login you can see Raspberry Pi desktop interface on your laptop
 
 ### VNC Viewer 'Cannot currently show the desktop' error
 
-![VNCError](doc/VNCError.png)
+![VNCError](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/3439f546-e011-4
 
 Some time we will face this issue while connecting with VNC Viewer. This is because of the resolution we set in the Raspberry Pi configuration. To solve this issue follow the below steps.
 
 Open SSH client (PuTTY in our case), connect to Raspberry Pi and login with the credentials. Then Go to Raspberry Pi configuration window by typing `sudo raspi-config` in command line. (These steps are mentioned above). In the configuration menu select `dispaly settings`
 
-![DisplaySettings](doc/DisplaySettings.png)
+![DisplaySettings](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/acd0ea60-a955-4ea7-a9b0-d40fe33c84fc)
+f2d-95bb-9ae9c7f94fb2)
+
 
 Then select resolution and change the resolution from `default` to any other resolution.
 
-![Resolution](doc/Resolution.png)
+![Resolution](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/cb670c97-1142-4c7d-a4fb-952a896db543)
 
 Now if we connect again with VNC viewer screen will be visible. Here we are done with connecting our Raspberry Pi with Laptop.
 
