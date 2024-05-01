@@ -87,15 +87,15 @@ Then, we define indices at which the list is splitted. The first 80% of the list
  
 The list can then be splitted with the indices.
 
- >train_files = image_files[:train_split]
+>train_files = image_files[:train_split]
 >valid_files = image_files[train_split:valid_split]
 >test_files = image_files[valid_split:]
  
 Finally, we use a nested `for` loop to copy the image files from the `raw_images` folder to the destination folders.
  
 >for src, dest in zip([train_files, valid_files, test_files], img_dirs):
-    >for f in src:
-        >shutil.copy(f, dest)
+>for f in src:
+>shutil.copy(f, dest)
 
 The complete Python script can be found here. Execute it in the Thonny IDE or in the terminal and the datasets will be created.
 
@@ -105,7 +105,18 @@ As seen in the [previous tutorial](https://gpiocc.github.io/learn/raspberrypi/ml
 
 First, we download labelimg from Github.
 
+>pi@raspberrypi:~ $ git clone https://github.com/tzutalin/labelImg --depth=1
+
+Then, we install the dependencies of labelImg.
+
+>pi@raspberrypi:~ $ sudo apt update
+>pi@raspberrypi:~ $ sudo apt install -y pyqt5-dev-tools
+>pi@raspberrypi:~ $ cd labelImg
+>pi@raspberrypi:~/labelImg $ sudo pip3 install -r requirements/requirements-linux-python3.txt
+>pi@raspberrypi:~/labelImg $ make qt5py3
 
 
+After the dependencies are installed, we can launch labelImg.
 
-
+>pi@raspberrypi:~/labelImg $ python3 labelImg.py
+>
