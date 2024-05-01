@@ -54,6 +54,29 @@ First, we import a few Python modules.
 >src_dir = pathlib.Path(src_dir) # convert the path into a Path object
 
 >data_dir = os.path.join(working_dir, 'data')
+
+The data folder in the home directory will be used to store the images and the annotations later.
+
+Then, we create the folders for storing the images and the annotations.
+>folders = ["training", "validation", "testing"]
+>dirs = [os.path.join(data_dir, f) for f in folders]
+>img_dirs = [os.path.join(d, "images") for d in dirs]
+>annotation_dirs = [os.path.join(d, "annotations") for d in dirs]
+
+>pathlib.Path(data_dir).mkdir(exist_ok=True)
+
+>for d in dirs + img_dirs + annotation_dirs:
+    pathlib.Path(d).mkdir(exist_ok=True)
+
+Inside the `data` folder, we create three folders `training`, `validation` and `testing`. In each of these folders, we create two folders `images` and `annotations`
+
+Next, we get the list of files inside the raw_images folder and count the number of images.
+
+>[]image_files = list(src_dir.glob("*.jpg"))
+num_of_images = len(image_files)
+print(f"Num of images: {num_of_images}")
+
+
  
  
  
