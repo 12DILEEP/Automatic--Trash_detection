@@ -73,16 +73,38 @@ Inside the `data` folder, we create three folders `training`, `validation` and `
 Next, we get the list of files inside the raw_images folder and count the number of images.
 
 >image_files = list(src_dir.glob("*.jpg")) 
- num_of_images = len(image_files)
- print(f"Num of images: {num_of_images}")
+>num_of_images = len(image_files)
+ >print(f"Num of images: {num_of_images}")
 
+Before we split the image files into 3 different subsets, we should shuffle the list of images to make each subset more representative.
 
- 
- 
- 
- 
+>random.shuffle(image_files)
 
+Then, we define indices at which the list is splitted. The first 80% of the list is for training, the next 10% is for validating, and the rest is for testing. Therefore, the indices can be defined as follows.
+
+>train_split = int(0.8 * num_of_images)
+>valid_split = int(0.9 * num_of_images)
  
+The list can then be splitted with the indices.
+
+ >train_files = image_files[:train_split]
+>valid_files = image_files[train_split:valid_split]
+>test_files = image_files[valid_split:]
+ 
+Finally, we use a nested `for` loop to copy the image files from the `raw_images` folder to the destination folders.
+ 
+>for src, dest in zip([train_files, valid_files, test_files], img_dirs):
+    >for f in src:
+        >shutil.copy(f, dest)
+
+The complete Python script can be found here. Execute it in the Thonny IDE or in the terminal and the datasets will be created.
+
+## Annotate Images with labelimg
+
+As seen in the [previous tutorial](https://gpiocc.github.io/learn/raspberrypi/ml/2020/04/18/martin-ku-using-raspberry-pi-and-tensorflow-lite-for-object-detection.html), the inference result of an object detection model contains two things: a bounding box and a label. Therefore, the images in a labelled datasets for training an object detection model have to be annotated first. This time, we will use labelImg to annotate the images.
+
+First, we download labelimg from Github.
+
 
 
 
