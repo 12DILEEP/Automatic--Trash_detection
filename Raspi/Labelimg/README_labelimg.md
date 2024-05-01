@@ -15,5 +15,10 @@ We can do all of the above on a Raspberry Pi. Let’s get started.
 Connect the camera module to the Raspberry Pi and enable it if you have not done so (see [this tutorial for the instructions](https://gpiocc.github.io/learn/raspberrypi/ml/2020/04/18/martin-ku-using-raspberry-pi-and-tensorflow-lite-for-object-detection.html). Once the camera is ready, we can use the `raspivid` command to capture videos. For example, the following command will record a video of size 640 x 480 at 25 FPS for 10 seconds.
 
 `pi@raspberrypi:~ $ raspivid -o video1.h264 -t 10000 -w 640 -h 480 -fps 25`
+![image](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/6705e808-1c01-4d23-b3be-957dcc220ad2)
+The video is stored in the `video1.h264` file. You should take a few more videos with the objects you want to detect to create a much more representative dataset for training a better model.
+`Note: The Pi captures video as a raw H264 video stream. The VLC player can play it but other media players may not, or play it at an incorrect speed. Check out the [Raspberry Pi official documentation](https://www.raspberrypi.com/documentation/accessories/camera.html#raspivid) if you want to know more about this.`
+
+
 
 
