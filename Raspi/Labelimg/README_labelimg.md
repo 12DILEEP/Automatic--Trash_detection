@@ -39,8 +39,11 @@ We will use Python to help us randomly separate the images into 3 sets. We use 8
 First, we import a few Python modules.
 
 > import os
+
 > import pathlib
+
 > import shutil
+
 > import random
  
  
