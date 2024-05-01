@@ -44,14 +44,16 @@ First, we import a few Python modules.
 
 > import shutil
 > import random
+> 
  Next, we define a few variables for the paths of the folders that we are working on.
+
 >working_dir = pathlib.Path.home() # the home director
 
-src_dir = os.path.join(working_dir, 'raw_images') # ~/raw_images
+>src_dir = os.path.join(working_dir, 'raw_images') # ~/raw_images
 
-src_dir = pathlib.Path(src_dir) # convert the path into a Path object
+>src_dir = pathlib.Path(src_dir) # convert the path into a Path object
 
-data_dir = os.path.join(working_dir, 'data')
+>data_dir = os.path.join(working_dir, 'data')
  
  
  
