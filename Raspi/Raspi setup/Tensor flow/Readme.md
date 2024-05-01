@@ -77,4 +77,26 @@ When we create a new virtual environment, we should always update the `pip` modu
 
 We are now ready to install the TensorFlow Lite runtime.
 
+## Install TensorFlow Lite Runtime.
+
+First, we need to check the version of Python running on the Raspberry Pi.
+
+ >>(tfl) `pi@raspberrypi`:~/ai$ python -V
+
+Then, visit [this TensorFlow page](https://www.tensorflow.org/lite/guide/python) and find the Linux (ARM 32) Python wheel URL of the TensorFlow for the version of Python you have. At the time of writing, the URL for Python 3.7 is https://dl.google.com/coral/python/tflite_runtime-2.1.0.post1-cp37-cp37m-linux_armv7l.whl, so the TensorFlow Lite runtime can be installed by the following command.
+
+>> (tfl) `pi@raspberrypi`:~/ai$ pip install https://dl.google.com/coral/python/tflite_runtime-2.1.0.post1-cp37-cp37m-linux_armv7l.whl
+
+All other libraries that TensorFlow Lite depends on (e.g. numpy) will be installed to the tfl virtual environment automatically.
+
+>>(tfl) `pi@raspberrypi`:~/ai$ git clone https://github.com/tensorflow/examples.git
+>>(tfl) `pi@raspberrypi`:~/ai$ wget https://dl.google.com/coral/canned_models/all_models.tar.gz
+>>(tfl) `pi@raspberrypi`:~/ai$ tar -xvf all_models.tar.gz --one-top-level
+
+
+>>NOTE: The download.sh script inside the folder of the TensorFlow Lite example will only download the Mobilenet SSD v1 model, but we actually can run different models with the object detection example. Therefore, we download extra models as suggested by the Google’s Coral repository.
+
+
+
+
 
