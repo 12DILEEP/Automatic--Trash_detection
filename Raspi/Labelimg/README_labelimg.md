@@ -12,7 +12,5 @@ Just like [what we did for image classification](https://gpiocc.github.io/learn/
 We can do all of the above on a Raspberry Pi. Let’s get started.
 
 # Capture Videos with the Raspberry Pi Camera
-Connect the camera module to the Raspberry Pi and enable it if you have not done so (see [this tutorial for the instructions](https://gpiocc.github.io/learn/raspberrypi/ml/2020/04/18/martin-ku-using-raspberry-pi-and-tensorflow-lite-for-object-detection.html). Once the camera is ready, we can use the "highlightwords.raspivid": {
-    "default": 0
-}raspivid command to capture videos. For example, the following command will record a video of size 640 x 480 at 25 FPS for 10 seconds.
+Connect the camera module to the Raspberry Pi and enable it if you have not done so (see [this tutorial for the instructions](https://gpiocc.github.io/learn/raspberrypi/ml/2020/04/18/martin-ku-using-raspberry-pi-and-tensorflow-lite-for-object-detection.html). Once the camera is ready, we can use the `raspivid` command to capture videos. For example, the following command will record a video of size 640 x 480 at 25 FPS for 10 seconds.
 
