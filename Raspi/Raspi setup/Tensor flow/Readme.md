@@ -90,7 +90,9 @@ Then, visit [this TensorFlow page](https://www.tensorflow.org/lite/guide/python)
 All other libraries that TensorFlow Lite depends on (e.g. numpy) will be installed to the tfl virtual environment automatically.
 
 >>(tfl) `pi@raspberrypi`:~/ai$ git clone https://github.com/tensorflow/examples.git
+
 >>(tfl) `pi@raspberrypi`:~/ai$ wget https://dl.google.com/coral/canned_models/all_models.tar.gz
+
 >>(tfl) `pi@raspberrypi`:~/ai$ tar -xvf all_models.tar.gz --one-top-level
 
 
