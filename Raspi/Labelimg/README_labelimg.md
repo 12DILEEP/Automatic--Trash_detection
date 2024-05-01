@@ -119,4 +119,33 @@ Then, we install the dependencies of labelImg.
 After the dependencies are installed, we can launch labelImg.
 
 >pi@raspberrypi:~/labelImg $ python3 labelImg.py
->
+
+![image](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/d1b8256a-fec5-437f-8bd4-377ab33339d4)
+
+Since we will use TensorFlow Lite Model Maker later, we save the annotations as XML files in PASCAL VOC format. Make sure that PASCAL VOC is selected on the left hand menu.
+
+![image](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/3d3ce5df-ec0d-425c-9daf-c3d382c5ce23)
+
+Next, we open the folder containing the training images. Click the **Open Dir** button on the left and select the folder ~/data/training/images.
+
+![image](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/d6115efd-c3e7-4a81-9103-bf612e08546a)
+
+We need to specify the folder for saving the annotations as well. Click the Change Save Dir button on the left and select the folder ~/data/training/annotations.
+
+![image](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/256c124c-9230-4fd1-a7e2-139f0b95980d)
+
+With the directories all set, we can start annotating the training images. Press ‘w’ on the keyboard or click **Create RectBox** on the left menu.
+
+Draw a bounding box on the area of the image where the object is placed. A dialog box will ask you to input the label of the object. Type the label of the object and click OK. You can draw multiple bounding boxes with different labels on the same image if the image contains multiple objects that you want to detect.
+
+![image](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/759b27e1-43f3-4feb-9bab-6d3c2c6bdb94)
+
+If your model only detects one kind of objects, you may choose the Use default label option on the right. The default label will be applied automatically once a new bounding box is drawn
+
+![image](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/7de90019-2ad1-45af-a66d-af3f417995fe)
+
+Press ‘Ctrl + s’ to save the annotation. Press ‘d’ on the keyboard or click Next Image on the left menu to open the next image. Repeat the previous steps until all images in the training folder are annotated. Do the same with the validation dataset and the testing dataset.
+
+
+### Conclusion
+With libraries like TensorFlow and PyTorch, creating and training object detection models may not be the most difficult tasks. Obtaining the datasets is often the most difficult challenge. It can take a lot of time to create a nice dataset that is useful for training a good model. Be patient when you are working on your new dataset. In the next tutorial, we will use the datasets that we created to train a custom object detection model.
