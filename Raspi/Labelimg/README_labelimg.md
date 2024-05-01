@@ -19,6 +19,36 @@ Connect the camera module to the Raspberry Pi and enable it if you have not done
 The video is stored in the `video1.h264` file. You should take a few more videos with the objects you want to detect to create a much more representative dataset for training a better model.
  Note: The Pi captures video as a raw H264 video stream. The VLC player can play it but other media players may not, or play it at an incorrect speed. Check out the [Raspberry Pi official documentation](https://www.raspberrypi.com/documentation/accessories/camera.html#raspivid) if you want to know more about this.
 
+ ### Use ffmpeg to Turn Video Frames into Images
+ Once we have recorded a few videos, we can extract the images from the videos with the `ffmpeg` program.
+ Firstly, let’s create a new folder `raw_images` for storing the extracted images.
+
+ > pi@raspberrypi:~ $ mkdir raw_images
+
+ Then, we extract the images by using the `ffmpeg` command.
+ 
+ > pi@raspberrypi:~ $ ffmpeg -i video1.h264 -vf fps=25 raw_images/video1_img%03d.jpg
+ Do the same for the rest of the videos.
+ ### Use Python to Create Training, Validating and Testing Datasets
+ If a model memorizes the training data, it will perform extremely well during training but very poorly when non-training data are fed to the model. This problem is known as **overfitting**. A simple, effective way to prevent this problem is using **cross validation**. When training the model, we do not use the entire set of data. The data that have not been used during training are used for checking whether the model can generalize well. Generally, we can divide a dataset into the following three subsets:
+- **Training** dataset: for training the model
+- **Validation** dataset: for checking the model’s performance during after each iteration (epoch) of training
+- **Testing** dataset: for evaluating the model’s performance after the training
+We will use Python to help us randomly separate the images into 3 sets. We use 80% of the images for training, 10% of the images for validating and 10% of the image for testing.
+
+First, we import a few Python modules.
+
+> import os
+> import pathlib
+> import shutil
+> import random
+ 
+ 
+ 
+ 
+
+ 
+
 
 
 
