@@ -33,18 +33,23 @@ If this is the first time you use the Raspberry Pi camera module, you need to co
 The camera module should come with a CSI cable. Plug the cable to the Raspberry Pi and the camera module as shown below.
 
 The metalic side of the cable should be in contact with the metalic part of the connectors on the Raspberry Pi and the camera modules
-
+![x](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/2d0833a8-8a0a-480a-96b0-4f74c638f48c)
+![y](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/cfcfec44-23ef-4c38-b584-62011a17d2d7)
 >>NOTE: If you find that the cable is too short, you may purchase a longer one on the Internet.
+
 
 After the Raspberry Pi is booted, we need to enable the camera interface. First, we need to launch the `raspi-config` program in the terminal
 
 >>pi@raspberrypi:~$ sudo raspi-config
 
 Then, move down to ‘Interface Options’ and press ENTER.
+<img width="400" alt="d" src="https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/488cb4dc-2708-4c98-9231-a1a4c0ec01a4">
 
 Then, select ‘Yes’.
+<img width="400" alt="e" src="https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/63d9e788-30f6-458b-b964-7e8f150afd8d">
 
 After going back to the main menu, select ‘Finish’ to close the raspi-config program. You need to reboot your Raspberry Pi
+<img width="400" alt="f" src="https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/e5467723-0f8c-4abc-9145-296b841de0cb">
 
 ## Setup Python Virtual Environment
 
@@ -62,6 +67,7 @@ Then, we create a folder `ai` for our project, and navigate to the folder.
 Next, we create a virtual environment named `tfl` for our project.
 >>`pi@raspberrypi`:~/ai$ python3 -m venv tfl
 
+
 After the command is executed, a new folder `tfl` is created. The folder will contain all the Python libraries that can be used only if you activate this specific virtual environment. Everytime we activate the tfl virtual environment, we need to execute the `tfl/bin/activate` file with the source command.
 
 >>NOTE: If you need to use the system packages (e.g. the RPi.GPIO library), you should add the flag `--system-site-packages`.
@@ -69,6 +75,8 @@ After the command is executed, a new folder `tfl` is created. The folder will co
 >>`pi@raspberrypi`:~/ai$ source tfl/bin/activate
 
 From now, `(tfl)` will be shown in every line you enter in the terminal.
+
+<img width="400" alt="a" src="https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/569e6f3f-22a2-43c9-aea6-e708b213f24c">
 
 
 When we create a new virtual environment, we should always update the `pip` module inside the virtual environment first.
@@ -96,7 +104,50 @@ All other libraries that TensorFlow Lite depends on (e.g. numpy) will be install
 >>(tfl) `pi@raspberrypi`:~/ai$ tar -xvf all_models.tar.gz --one-top-level
 
 
->>NOTE: The download.sh script inside the folder of the TensorFlow Lite example will only download the Mobilenet SSD v1 model, but we actually can run different models with the object detection example. Therefore, we download extra models as suggested by the Google’s Coral repository.
+>>NOTE: The download.sh script inside the folder of the TensorFlow Lite example will only download the Mobilenet SSD v1 model, but we actually can run different models with the object detection example. Therefore, we download extra models [as suggested by the Google’s Coral repository](https://github.com/google-coral/examples-camera).
+
+Then, navigate to the folder containing the object detection example.
+
+>>(tfl) `pi@raspberrypi`:~/ai$ cd examples/lite/examples/object_detection/raspberry_pi
+
+There are a number of Python libraries that need to be installed. We can install those libraries using the `pip` command and the `requirements.txt` file in the `raspberry_pi` folder.
+
+>>(tfl) `pi@raspberrypi`:~/ai/examples/lite/examples/object_detection/raspberry_pi$ pip install -r requirements.txt
+
+After the installation, we can run the object detection Python program.
+
+>>(tfl) `pi@raspberrypi`:~/ai/examples/lite/examples/object_detection/raspberry_pi$ python detect_picamera.py \
+  --model ~/ai/all_models/mobilenet_ssd_v2_coco_quant_postprocess.tflite \
+  --labels ~/ai/all_models/coco_labels.txt
+
+Point the camera to other things and see if the program can perform the detection correctly!
+![mouse](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/2f8150e8-94d7-491a-b4f4-dfa4527928a9)
+>>NOTE: If you use VNC, make sure that you enable ‘direct capture mode’ in the VNC Server preference.
+>>NOTE: If you receive an error message saying that the file ‘libf77blas.so.3’ is missing, run `sudo apt install python-dev libatlas-base-dev` in the terminal to install the missing numpy dependencies.
+
+You can stop the program by pressing ‘Ctrl + C’.
+
+We can also use other models to detect some other things. For example, if we use the Mobilenet face detection model:
+
+>>(tfl) pi@raspberrypi:~/ai/examples/lite/examples/object_detection/raspberry_pi$ python detect_picamera.py \
+  --model ~/ai/all_models/mobilenet_ssd_v2_face_quant_postprocess.tflite \
+  --labels ~/ai/all_models/coco_labels.txt
+
+The `python` command starts the Python interpreter and run the Python script `detect_picamera.py`. The `--model` flag specifies the location of the model file, and the --labels flag specifies the location of the file containing the text labels.
+
+## Conclusion and Assignment
+
+Neural networks enable us to perform a lot of amazing tasks related to computer vision. While the theories and mathematics behind neural networks and deep learning can be complicated, it’s easy for us to get started with using such technologies in our own projects. For instance, it is also very easy to perform image classiciation with TensorFlow Lite. More importantly, you can train your own TensorFlow Lite image classification models with Google’s simple-to-use Teachable Machine web app. That means you can create your own AI-enabled sorter machine very easily. Moreover, if we add an Tensor Processing Unit (TPU) to the Raspberry Pi like the Coral USB Accelerator, we can have even higher inferencing performance.
+
+As an assignment, you may try running the image classification example. After you have activated the tfl virtual environment, navigate to the `~/ai/examples/lite/examples/image_classification/raspberry_pi` folder, and then:
+
+* install the additional Python libraries with the file requirements.txt
+* use python to run the classify_picamera.py script with a. the model mobilenet_v2_1.0_224_quant.tflite inside the ~/ai/all_models folder b. the label text file imagenet_labels.txt inside the ~/ai/all_models folder
+
+The program should show the class of the item in the image!
+
+![t](https://github.com/12DILEEP/Automatic--Trash_detection/assets/90190565/1fc64c70-abbf-4e59-ad25-601090b3eba5)
+
 
 
 
