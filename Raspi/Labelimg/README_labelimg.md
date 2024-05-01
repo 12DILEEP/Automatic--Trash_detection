@@ -43,8 +43,7 @@ First, we import a few Python modules.
 > import pathlib
 
 > import shutil
-
-> import random
+> import random ...
  
  
  
