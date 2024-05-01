@@ -72,9 +72,9 @@ Inside the `data` folder, we create three folders `training`, `validation` and `
 
 Next, we get the list of files inside the raw_images folder and count the number of images.
 
->[]image_files = list(src_dir.glob("*.jpg"))
-num_of_images = len(image_files)
-print(f"Num of images: {num_of_images}")
+>image_files = list(src_dir.glob("*.jpg")) 
+ num_of_images = len(image_files)
+ print(f"Num of images: {num_of_images}")
 
 
  
