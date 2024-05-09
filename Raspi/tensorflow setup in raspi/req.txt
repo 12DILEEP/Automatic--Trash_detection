@@ -1,0 +1,8 @@
+git hub link to take pictures- https://github.com/EdjeElectronics/Image-Dataset-Tools/tree/main/PictureTaker
+
+git hub link to download labelImg for windows -https://github.com/HumanSignal/labelImg/releases
+
+LabelImg install instructions for macOS and Linux - https://github.com/HumanSignal/labelImg#installation
+
+//googles sample detection model
+wget https://storage.googleapis.com/download.tensorflow.org/models/tflite/coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip
